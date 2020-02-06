@@ -1,0 +1,26 @@
+{
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "grapgql",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js --exec babel-node -e js"
+  },
+  "author": "axel huxley",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.9.15",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.8",
+    "graphql-import": "^0.7.1",
+    "graphql-tools": "^4.0.6",
+    "mongoose": "^5.8.4",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}

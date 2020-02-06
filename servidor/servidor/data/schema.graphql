@@ -1,0 +1,77 @@
+type cliente{
+    id: ID
+    nombre: String
+    apellido: String
+    empresa: String
+    emails:[email]
+    edad: Int
+    tipo: tipoCliente
+    pedidos: [pedido]
+}
+type producto{
+    id: ID
+    nombre: String!
+    precio: Int!
+    stock: Int!
+}
+type pedido{
+    producto: String
+    precio: Int
+}
+type email{
+    email: String
+}
+enum tipoCliente{
+    BASICO
+    PREMIUM
+}
+type Query{
+    getClientes(limite : Int, offset:Int) : [cliente]
+    getCliente(id:ID) :cliente
+    totalClientes : String
+    ##producto
+    getProductos(limite: Int, offset: Int): [producto]
+    getProducto(id:ID!) : producto
+    totalProductos : String
+}
+""" campos para pedido """
+input PedidoInput{
+    producto: String
+    precio: Int
+}
+""" campos para el email"""
+input EmailInput{
+    email: String
+}
+"""Campos para los clientes nuevos"""
+input ClienteInput {
+    id: ID
+    nombre: String!
+    apellido: String!
+    empresa: String!
+    emails: [EmailInput]
+    edad: Int!
+    tipo:tipoCliente!
+    pedidos: [PedidoInput]
+} 
+
+input productoInput{
+    id: ID
+    nombre: String!
+    precio: Int!
+    stock: Int!
+}
+
+"""mutation para crear clientes nuevos"""
+type Mutation {
+     #Nombre del resolver, input con datos y retorna el valor cliente
+    """Te permite crear nuevos clientes"""
+    crearCliente(input: ClienteInput): cliente
+    actualizarCliente(input: ClienteInput): cliente
+    eliminarCliente (id: ID!) : String 
+    #para producto
+    nuevoProducto(input: productoInput) : producto
+    actualizarProducto(input: productoInput) : producto
+    eliminarProducto(id : ID!) : String
+}
+    
