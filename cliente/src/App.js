@@ -21,7 +21,6 @@ const client = new ApolloClient({
   onError: ({ netWorkError, graphQLErrors }) => {
     console.log('graphQLErros', graphQLErrors);
     console.log('netWorkError', netWorkError);
-
   }
 })
 

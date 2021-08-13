@@ -54,8 +54,6 @@ export const resolvers ={
                 pedidos: input.pedidos
             });
             nuevoCliente.id= nuevoCliente._id
-            console.log("hola")
-
             return new Promise((resolve, Object) =>{
                 nuevoCliente.save((error) => {
                     if(error) rejects(error)
